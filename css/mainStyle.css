@@ -1,0 +1,28 @@
+html{
+    font-family: "Comic Sans MS";
+}
+header{
+    text-align: center;
+} 
+
+.gridGame{
+    display: grid;
+    grid: repeat(8, 1fr) / repeat(8, 1fr);
+    border: 0.30vmin inset black;
+
+    margin: auto;
+    width: 70vmin;
+    height: 70vmin;
+    background-color: green;
+}
+
+.btnMoveSect{
+    text-align: center;
+}
+#player{
+    background-color: blue;
+}
+
+.tree{
+    background-color: red;
+}
