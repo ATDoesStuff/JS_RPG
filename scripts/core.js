@@ -1,7 +1,9 @@
 var player = document.getElementById("player");
+var enemy = document.getElementById("enemy")
 var grid = document.getElementById("grid");
 var gridXY = {x: 8, y: 8};
 
+/* ----- PLAYER CONTROLS ----- */
 /* ----- BUTTON UP ----- */
 document.addEventListener("keyup", function(event) {
     if (event.code === 'ArrowUp') { document.getElementById("btnUp").click();
@@ -9,6 +11,9 @@ document.addEventListener("keyup", function(event) {
 function btnUp(){
     playerCurrentRow = parseInt(player.style.gridRowStart);
     player.style.gridRowStart = playerCurrentRow - 1;
+
+    console.log(player.style.gridRowStart);
+    enemyCheck();
 }
 /* ----- BUTTON UP END ----- */
 
@@ -19,6 +24,9 @@ document.addEventListener("keyup", function(event) {
 function btnRight(){
     playerCurrentColumn = parseInt(player.style.gridColumnStart);
     player.style.gridColumnStart = playerCurrentColumn + 1;
+
+    console.log(player.style.gridColumnStart);
+    enemyCheck();
 }
 /* ----- BUTTON RIGHT END ----- */
 
@@ -29,6 +37,9 @@ document.addEventListener("keyup", function(event) {
 function btnDown(){
     playerCurrentRow = parseInt(player.style.gridRowStart);
     player.style.gridRowStart = playerCurrentRow + 1;
+
+    console.log(player.style.gridRowStart);
+    enemyCheck();
 }
 /* ----- BUTTON DOWN END ----- */
 
@@ -39,5 +50,21 @@ document.addEventListener("keyup", function(event) {
 function btnLeft(){
     playerCurrentColumn = parseInt(player.style.gridColumnStart);
     player.style.gridColumnStart = playerCurrentColumn - 1;
+
+    console.log(player.style.gridColumnStart);
+    enemyCheck();
 }
 /* ----- BUTTON LEFT END ----- */
+/* ----- END PLAYER CONTROLS ----- */
+
+function enemyCheck(){
+    playerCurrentColumn = parseInt(player.style.gridColumnStart);
+    playerCurrentRow = parseInt(player.style.gridRowStart);
+
+    enemyCurrentColumn = parseInt(enemy.style.gridColumnStart);
+    enemyCurrentRow = parseInt(enemy.style.gridRowStart);
+
+    if (playerCurrentColumn == enemyCurrentColumn && playerCurrentRow == enemyCurrentRow){
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAA');
+    }
+}
