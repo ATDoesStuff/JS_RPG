@@ -20,9 +20,9 @@ header{
     text-align: center;
 }
 #player{
-    background-color: blue;
+    background-color: #FF784F;
 }
 
-.tree{
-    background-color: red;
+.enemy{
+    background-color: #3A3042;
 }

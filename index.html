@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="css/mainStyle.css">
+    <link rel="stylesheet" href="css/popUp.css">
     <title>RPG IGUESS IDK</title>
 </head>
 <body>
     <header>
-        <h1>i made a thing</h1>
+        <h1>A game :)</h1>
     </header>
     <main>
         <section>
             <div class="gridGame" id="grid">
 
                 <div id="player" style="grid-row-start: 5; grid-column-start: 5;"> </div>
-                <div id="enemy" class="tree" style="grid-row-start: 2; grid-column-start: 2;"> </div>
+                <div id="enemy" class="enemy" style="grid-row-start: 2; grid-column-start: 2;"> </div>
 
             </div>
         </section>
@@ -27,10 +28,20 @@
             <button onclick="btnLeft()" id="btnLeft">LEFT</button>   <button onclick="btnDown()" id="btnDown">DOWN</button>   <button onclick="btnRight()" id="btnRight">RIGHT</button>
         </section>
     </main>
+
+    <!-- POP UP BATTLE -->
+    <div id="battleArena" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p>(Battle >:D )</p>
+        </div>
+    </div>
+
     <footer>
         a
     </footer>
 
     <script src="scripts/core.js"></script>
+    <script src="scripts/popUpAppear.js"></script>
 </body>
 </html>

@@ -11,8 +11,6 @@ document.addEventListener("keyup", function(event) {
 function btnUp(){
     playerCurrentRow = parseInt(player.style.gridRowStart);
     player.style.gridRowStart = playerCurrentRow - 1;
-
-    console.log(player.style.gridRowStart);
     enemyCheck();
 }
 /* ----- BUTTON UP END ----- */
@@ -24,8 +22,6 @@ document.addEventListener("keyup", function(event) {
 function btnRight(){
     playerCurrentColumn = parseInt(player.style.gridColumnStart);
     player.style.gridColumnStart = playerCurrentColumn + 1;
-
-    console.log(player.style.gridColumnStart);
     enemyCheck();
 }
 /* ----- BUTTON RIGHT END ----- */
@@ -37,8 +33,6 @@ document.addEventListener("keyup", function(event) {
 function btnDown(){
     playerCurrentRow = parseInt(player.style.gridRowStart);
     player.style.gridRowStart = playerCurrentRow + 1;
-
-    console.log(player.style.gridRowStart);
     enemyCheck();
 }
 /* ----- BUTTON DOWN END ----- */
@@ -50,21 +44,54 @@ document.addEventListener("keyup", function(event) {
 function btnLeft(){
     playerCurrentColumn = parseInt(player.style.gridColumnStart);
     player.style.gridColumnStart = playerCurrentColumn - 1;
-
-    console.log(player.style.gridColumnStart);
     enemyCheck();
 }
 /* ----- BUTTON LEFT END ----- */
 /* ----- END PLAYER CONTROLS ----- */
 
+//Check if the player collides with an enemy
 function enemyCheck(){
     playerCurrentColumn = parseInt(player.style.gridColumnStart);
     playerCurrentRow = parseInt(player.style.gridRowStart);
+
+    console.log('X: ', player.style.gridColumnStart, "Y: ", player.style.gridRowStart);
 
     enemyCurrentColumn = parseInt(enemy.style.gridColumnStart);
     enemyCurrentRow = parseInt(enemy.style.gridRowStart);
 
     if (playerCurrentColumn == enemyCurrentColumn && playerCurrentRow == enemyCurrentRow){
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAA');
+        console.log('Player colided with enemy');
+        var battleArena = document.getElementById("battleArena");
+        battleArena.style.display = "block";
     }
 }
+
+// Get the id of object
+var arena = document.getElementById("battleArena");
+
+// When the user clicks anywhere outside of the arena, close it
+window.onclick = function(event) {
+  if (event.target == arena) {
+    arena.style.display = "none";
+  }
+}
+
+var targetNode = document.getElementById('battleArena');
+var observer = new MutationObserver(function(){
+    if(targetNode.style.display != 'none'){
+        // doSomething
+        window.alert('Controls Taken Away >:)');
+        document.getElementById("btnLeft").disabled = true;
+        document.getElementById("btnRight").disabled = true;
+        document.getElementById("btnUp").disabled = true;
+        document.getElementById("btnDown").disabled = true;
+    }else if(targetNode.style.display == 'none'){
+        
+        window.alert('Control Given To Player :)');
+        document.getElementById("btnLeft").disabled = false;
+        document.getElementById("btnRight").disabled = false;
+        document.getElementById("btnUp").disabled = false;
+        document.getElementById("btnDown").disabled = false;
+    }
+});
+observer.observe(targetNode, { attributes: true, childList: true });
