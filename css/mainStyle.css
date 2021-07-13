@@ -1,28 +1,55 @@
+:root{
+    /* ----- COLORS ----- */
+    --donut: #FF784F;
+    --enemy: #3A3A3A;
+    --border: #3A3A3A;
+    --ground_Grass: #90BE6D;
+    --bgElements: #fcbf49;
+
+    /* ----- FONTS ----- */
+    --titleFont: "Bona Nova"
+}
+
 html{
     font-family: "Comic Sans MS";
+    background-color: #a9d6e5;
 }
-header{
+h1{
     text-align: center;
-} 
+    font-family: var(--titleFont);
+    font-size: 5vmin;
+    background-color: var(--bgElements);
+    padding: 1.2vmin;
+    margin: 1vmin 0;
+}
 
 .gridGame{
     display: grid;
     grid: repeat(8, 1fr) / repeat(8, 1fr);
-    border: 0.30vmin inset black;
+    border: 1vmin solid var(--border);
 
     margin: auto;
     width: 70vmin;
     height: 70vmin;
-    background-color: green;
+    background-color: var(--ground_Grass);
 }
 
 .btnMoveSect{
     text-align: center;
+    margin: 1vmin 0;
+    background-color: var(--bgElements);
+
+}.btnMove{
+    border: 0.5vmin solid var(--border);
+    font-size: 3vmin;
+    margin: 0.5vmin;
 }
+
 #player{
-    background-color: #FF784F;
+    background-color: var(--donut);
+    border: 1px solid var(--border);
 }
 
 .enemy{
-    background-color: #3A3042;
+    background-color: var(--enemy);
 }
