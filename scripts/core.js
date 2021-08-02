@@ -66,6 +66,8 @@ function enemyCheck(){
     }
 }
 
+
+/* ----- BATTLE ----- */
 // Get the id of object
 var arena = document.getElementById("battleArena");
 
@@ -79,15 +81,15 @@ window.onclick = function(event) {
 var targetNode = document.getElementById('battleArena');
 var observer = new MutationObserver(function(){
     if(targetNode.style.display != 'none'){
-        // doSomething
-        window.alert('Controls Taken Away >:)');
+
         document.getElementById("btnLeft").disabled = true;
         document.getElementById("btnRight").disabled = true;
         document.getElementById("btnUp").disabled = true;
         document.getElementById("btnDown").disabled = true;
+
+        battle();
     }else if(targetNode.style.display == 'none'){
         
-        window.alert('Control Given To Player :)');
         document.getElementById("btnLeft").disabled = false;
         document.getElementById("btnRight").disabled = false;
         document.getElementById("btnUp").disabled = false;
@@ -95,3 +97,20 @@ var observer = new MutationObserver(function(){
     }
 });
 observer.observe(targetNode, { attributes: true, childList: true });
+
+function battle(){
+    playerHealt = document.getElementById("playerHealt");
+    
+    
+}
+
+function btnAttack(){
+    playerAttack = document.getElementById("attack").innerHTML;
+    playerLuck = document.getElementById("luck").innerHTML;
+
+    enemyHealt = document.getElementById("enemyHealt").innerHTML;
+
+    enemyHealt = (enemyHealt - playerAttack);
+
+    document.getElementById("enemyHealt").innerHTML = enemyHealt;
+}

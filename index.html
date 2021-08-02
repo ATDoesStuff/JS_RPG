@@ -7,7 +7,6 @@
     <!-- ----- STYLESHEETS ----- -->
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
         <link rel="stylesheet" href="css/mainStyle.css">
-        <link rel="stylesheet" href="css/popUp.css">
     <!-- ----- STYLESHEETS END ----- -->
 
     <!-- ----- FONTS ----- -->
@@ -24,14 +23,29 @@
         <h1>Donut Quest</h1>
     </header>
     <main>
-        <section>
-            <div class="gridGame" id="grid">
-
-                <div id="player" style="grid-row-start: 5; grid-column-start: 5;"> </div>
-                <div id="enemy" class="enemy" style="grid-row-start: 2; grid-column-start: 2;"> </div>
-
-            </div>
-        </section>
+        <article class="mainGrid">
+            <section class="statsSect">
+                <div>
+                    <h3>DONUT's STATS</h3>
+                    <div class="statShow">
+                        <p>🥜 ATK:</p> 
+                            <p id="attack">15</p>
+                        <p>🐚 DEF:</p>
+                            <p id="defence">2</p>
+                        <p>🌠 LUCK:</p>
+                            <p id="luck">3</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="gridGame" id="grid">
+    
+                    <div id="player" style="grid-row-start: 5; grid-column-start: 5;"> </div>
+                    <div id="enemy" class="enemy" style="grid-row-start: 2; grid-column-start: 2;"> </div>
+    
+                </div>
+            </section>
+        </article>
         <section class="btnMoveSect">
             <button class="btnMove" onclick="btnUp()" id="btnUp">^</button>
                 <br>
@@ -42,10 +56,31 @@
     </main>
 
     <!-- POP UP BATTLE -->
-    <div id="battleArena" class="modal">
+    <div id="battleArena" class="arena">
         <!-- Modal content -->
-        <div class="modal-content">
-            <p>(Battle >:D )</p>
+        <div class="arena-content">
+            <p>BATTLE WITH THEM TEST ENEMY >:)))))</p>
+
+            <div class="healtBarsDiv">
+                <div>
+                    <p>Donut</p>
+                </div>
+                <div>
+                    <p>Enemy</p>
+                </div>
+
+                <div class="playerHealt">
+                    <p id="playerHealt">50</p>
+                </div>
+                <div class="enemyHealt">
+                    <p id="enemyHealt">20</p> 
+                </div>
+            </div>
+
+            <button id="btnAttack" onclick="btnAttack()"> ‼ Attack ‼ </button>
+            <button id="btnBlock" onclick="btnBlock()"> 🔩 Block 🔩 </button>
+            <button id="btnRun" onclick="btnRun()"> 🥾 Run Away 🥾 </button>
+
         </div>
     </div>
 
@@ -54,6 +89,5 @@
     </footer>
 
     <script src="scripts/core.js"></script>
-    <script src="scripts/popUpAppear.js"></script>
 </body>
 </html>
