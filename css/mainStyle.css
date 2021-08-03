@@ -33,8 +33,17 @@ h1{
 /* ----- MAIN ----- */
 .mainGrid{
     display: grid;
-    grid: 1fr / 0.45fr 1fr;
-    margin: 0 10vmin;
+}.statsSect{
+    display: none;
+}
+@media (min-width: 751px) {
+    .mainGrid{
+        display: grid;
+        grid: 1fr / 0.45fr 1fr;
+        margin: 0 10vmin;
+    }.statsSect{
+        display: block;
+    }    
 }
 
 /* ----- GAME ----- */

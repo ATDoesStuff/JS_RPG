@@ -128,8 +128,7 @@ function enemyHealtCheck(){
         window.alert("enemy defeated");
         arena.style.display = "none";
 
-        //hide enemy
-        document.getElementById("enemy").style.display = "none";
+        enemySpawn();
     }
 }
 
@@ -140,3 +139,27 @@ function playerHealtCheck(){
         location.reload();
     }
 }
+
+function enemySpawn(){
+
+    //Get enemy's last position, we'll use this later to make sure it doesnt spawn on the same place :)
+    enemyLastY = document.getElementById("enemy").style.gridColumnStart;
+    enemyLastX = document.getElementById("enemy").style.gridRowStart;
+
+    //re-roll enemy's position with Math.random(), making sure it isnt lower than 1, aka an invalid number
+    while(enemyX < 1 && enemyX != enemyLastX){
+        enemyX = (Math.random * 8);
+        console.log(enemyX);
+    };
+    while(enemyY < 1 && enemyY != enemyLastY){
+        enemyY = (Math.random * 8);
+        console.log(enemyY);
+    };
+
+    //re-write variables
+    enemyLastY = enemyY;
+    enemyLastX = enemyX;
+    
+    document.getElementById("enemyHealt").innerHTML = 50;
+
+};
