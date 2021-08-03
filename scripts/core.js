@@ -21,7 +21,9 @@ document.addEventListener("keyup", function(event) {
 }});
 function btnRight(){
     playerCurrentColumn = parseInt(player.style.gridColumnStart);
-    player.style.gridColumnStart = playerCurrentColumn + 1;
+    if(playerCurrentColumn != 8){
+        player.style.gridColumnStart = playerCurrentColumn + 1;
+    }
     enemyCheck();
 }
 /* ----- BUTTON RIGHT END ----- */
@@ -32,7 +34,9 @@ document.addEventListener("keyup", function(event) {
 }});
 function btnDown(){
     playerCurrentRow = parseInt(player.style.gridRowStart);
-    player.style.gridRowStart = playerCurrentRow + 1;
+    if(playerCurrentRow != 8){
+        player.style.gridRowStart = playerCurrentRow + 1;
+    }
     enemyCheck();
 }
 /* ----- BUTTON DOWN END ----- */
@@ -98,19 +102,41 @@ var observer = new MutationObserver(function(){
 });
 observer.observe(targetNode, { attributes: true, childList: true });
 
-function battle(){
-    playerHealt = document.getElementById("playerHealt");
-    
-    
-}
-
 function btnAttack(){
+    playerHealt = document.getElementById("playerHealt").innerHTML;
     playerAttack = document.getElementById("attack").innerHTML;
     playerLuck = document.getElementById("luck").innerHTML;
 
     enemyHealt = document.getElementById("enemyHealt").innerHTML;
+    enemyAttack = 5;
+    enemyLuck = 10;
 
     enemyHealt = (enemyHealt - playerAttack);
-
     document.getElementById("enemyHealt").innerHTML = enemyHealt;
+
+    enemyHealtCheck();
+
+    playerHealt = (playerHealt - enemyAttack);
+    document.getElementById("playerHealt").innerHTML = playerHealt;
+
+    playerHealtCheck();
+}
+
+function enemyHealtCheck(){
+    enemyHealt = document.getElementById("enemyHealt").innerHTML;
+    if(enemyHealt <= 0){
+        window.alert("enemy defeated");
+        arena.style.display = "none";
+
+        //hide enemy
+        document.getElementById("enemy").style.display = "none";
+    }
+}
+
+function playerHealtCheck(){
+    playerHealt = document.getElementById("playerHealt").innerHTML;
+    if(playerHealt <= 0){
+        window.alert("you died :(");
+        location.reload();
+    }
 }

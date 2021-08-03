@@ -38,7 +38,7 @@ h1{
 }
 
 /* ----- GAME ----- */
-.gridGame{
+#grid{
     display: grid;
     grid: repeat(8, 1fr) / repeat(8, 1fr);
     border: 1vmin solid var(--border);
