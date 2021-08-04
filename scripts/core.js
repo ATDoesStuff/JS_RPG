@@ -91,7 +91,6 @@ var observer = new MutationObserver(function(){
         document.getElementById("btnUp").disabled = true;
         document.getElementById("btnDown").disabled = true;
 
-        battle();
     }else if(targetNode.style.display == 'none'){
         
         document.getElementById("btnLeft").disabled = false;
@@ -125,9 +124,7 @@ function btnAttack(){
 function enemyHealtCheck(){
     enemyHealt = document.getElementById("enemyHealt").innerHTML;
     if(enemyHealt <= 0){
-        window.alert("enemy defeated");
         arena.style.display = "none";
-
         enemySpawn();
     }
 }
@@ -145,20 +142,22 @@ function enemySpawn(){
     //Get enemy's last position, we'll use this later to make sure it doesnt spawn on the same place :)
     enemyLastY = document.getElementById("enemy").style.gridColumnStart;
     enemyLastX = document.getElementById("enemy").style.gridRowStart;
+    enemyX = 0;
+    enemyY = 0;
 
     //re-roll enemy's position with Math.random(), making sure it isnt lower than 1, aka an invalid number
     while(enemyX < 1 && enemyX != enemyLastX){
-        enemyX = (Math.random * 8);
+        enemyX = Math.floor(Math.random() * 8);
         console.log(enemyX);
     };
     while(enemyY < 1 && enemyY != enemyLastY){
-        enemyY = (Math.random * 8);
+        enemyY = Math.floor(Math.random() * 8);
         console.log(enemyY);
     };
 
     //re-write variables
-    enemyLastY = enemyY;
-    enemyLastX = enemyX;
+    document.getElementById("enemy").style.gridColumnStart = enemyY;
+    document.getElementById("enemy").style.gridRowStart = enemyX;
     
     document.getElementById("enemyHealt").innerHTML = 50;
 
