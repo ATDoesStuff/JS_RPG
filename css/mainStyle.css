@@ -36,20 +36,6 @@ h1{
 }.statsSect{
     display: none;
 }
-@media (min-width: 751px) {
-    .mainGrid{
-        display: grid;
-        grid: 1fr / 0.45fr 1fr;
-        margin: 0 10vmin;
-    }.statsSect{
-        display: block;
-    }#grid{
-        margin: 0 auto;
-    }.btnMove{
-        width: 2vmin;
-        height: 2vmin;
-    }
-}
 
 /* ----- GAME ----- */
 #grid{
@@ -71,12 +57,20 @@ h1{
 .enemy{
     background-color: var(--enemy);
 }
+#inn{
+    background-color: var(--bgElements);
+    border: 1px solid var(--border);
+}#turyShop{
+    background-color: lightcoral;
+    border: 1px solid var(--border);
+}
 
 /* ----- D-PAD ----- */
 .btnMoveSect{
     text-align: center;
     margin: 1vmin 0;
     background-color: var(--bgElements);
+    display: block;
     
 
 }.btnMove{
@@ -155,3 +149,17 @@ h1{
 }
 
 /* ----- STATS ----- */
+
+@media (min-width: 751px) {
+    .mainGrid{
+        display: grid;
+        grid: 1fr / 0.45fr 1fr;
+        margin: 0 10vmin;
+    }.statsSect{
+        display: block;
+    }#grid{
+        margin: 0 auto;
+    }.btnMoveSect{
+        display: none;
+    }
+}

@@ -42,10 +42,11 @@
             <section>
                 <div class="gridGame" id="grid">
     
-                    <div id="player" style="grid-row-start: 5; grid-column-start: 5;"> </div>
+                    <div id="player" style="grid-row-start: 2; grid-column-start: 2;"> </div>
                     <div id="enemy" class="enemy" style="grid-row-start: 1; grid-column-start: 1;"> </div>
 
-                    <div id="inn"></div>
+                    <div id="inn" style="grid-row-start: 2; grid-column-start: 1"> </div>
+                    <div id="turyShop" style="grid-row-start: 3; grid-column-start: 1;"></div>
     
                 </div>
             </section>
@@ -92,9 +93,9 @@
     </div>
 
     <footer>
-        
+        @ATDoesStuff 2021
     </footer>
 
-    <script src="scripts/core.js" onload="enemySpawn(), playerSpawn()"></script>
+    <script src="scripts/core.js" onload="enemySpawn(), playerSpawn(), structureSpawn()"></script>
 </body>
 </html>

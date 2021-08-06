@@ -1,7 +1,6 @@
 var player = document.getElementById("player");
 var enemy = document.getElementById("enemy")
 var grid = document.getElementById("grid");
-var gridXY = {x: 8, y: 8};
 
 /* ----- PLAYER CONTROLS ----- */
 /* ----- BUTTON UP ----- */
@@ -168,12 +167,27 @@ function playerSpawn(){
     playerX = Math.floor(Math.random() * 8);
     playerY = Math.floor(Math.random() * 8);
 
-
     document.getElementById("player").style.gridColumnStart = playerY;
     document.getElementById("player").style.gridRowStart = playerX;
     
     document.getElementById("playerHealt").innerHTML = 50;
+};
+function structureSpawn(){
+    //inn spawn
+    innX = Math.floor(Math.random() * 8);
+    innY = Math.floor(Math.random() * 8);
 
+    document.getElementById("inn").style.gridColumnStart = innY;
+    document.getElementById("inn").style.gridRowStart = innX;
+
+    //tury shop spawn
+    while(shopX <0 && shopX != innX){
+        shopX = Math.floor(Math.random() * 8);
+    }
+    shopY = Math.floor(Math.random() * 8);
+
+    document.getElementById("turyShop").style.gridColumnStart = shopY;
+    document.getElementById("turyShop").style.gridRowStart = shopX;
 };
 
 /* ----- End Entity ----- */
