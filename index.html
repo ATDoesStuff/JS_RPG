@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bona+Nova&family=Montserrat&family=Otomanopee+One&family=Zen+Loop&display=swap" rel="stylesheet"> 
-    <!-- ----- FONTS END ----- -->
+    <!-- ----- FONTS END ----- -->  
 
     <title>🍩 Donut Quest</title>
 
@@ -28,6 +28,8 @@
                 <div>
                     <h3>DONUT's STATS</h3>
                     <div class="statShow">
+                        <p>🧡 HP:</p>
+                            <p id="playerHealt_OverWorld">1</p>
                         <p>🥜 ATK:</p> 
                             <p id="attack">15</p>
                         <p>🐚 DEF:</p>
@@ -41,7 +43,9 @@
                 <div class="gridGame" id="grid">
     
                     <div id="player" style="grid-row-start: 5; grid-column-start: 5;"> </div>
-                    <div id="enemy" class="enemy" style="grid-row-start: 2; grid-column-start: 2;"> </div>
+                    <div id="enemy" class="enemy" style="grid-row-start: 1; grid-column-start: 1;"> </div>
+
+                    <div id="inn"></div>
     
                 </div>
             </section>
@@ -59,7 +63,7 @@
     <div id="battleArena" class="arena">
         <!-- Modal content -->
         <div class="arena-content">
-            <p>BATTLE WITH THEM TEST ENEMY >:)))))</p>
+            <p class="battle-msg">BATTLE WITH THEM TEST ENEMY >:)))))</p>
 
             <div class="healtBarsDiv">
                 <div>
@@ -69,18 +73,21 @@
                     <p>Enemy</p>
                 </div>
 
-                <div class="playerHealt">
+                <div class="healtBar">
                     <p id="playerHealt">50</p>
                 </div>
-                <div class="enemyHealt">
+                <div class="healtBar">
                     <p id="enemyHealt">50</p> 
                 </div>
             </div>
 
-            <button id="btnAttack" onclick="btnAttack()"> ‼ Attack ‼ </button>
-            <button id="btnBlock" onclick="btnBlock()"> 🔩 Block 🔩 </button>
-            <button id="btnRun" onclick="btnRun()"> 🥾 Run Away 🥾 </button>
+            <div class="battle-commands">
 
+                <button id="btnAttack" onclick="btnAttack()"> ‼ Attack ‼ </button>
+                <button id="btnBlock" onclick="btnBlock()"> 🔩 Block 🔩 </button>
+                <button id="btnRun" onclick="btnRun()"> 🥾 Run Away 🥾 </button>
+    
+            </div>            
         </div>
     </div>
 
@@ -88,6 +95,6 @@
         
     </footer>
 
-    <script src="scripts/core.js"></script>
+    <script src="scripts/core.js" onload="enemySpawn(), playerSpawn()"></script>
 </body>
 </html>

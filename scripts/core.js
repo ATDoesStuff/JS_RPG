@@ -137,6 +137,7 @@ function playerHealtCheck(){
     }
 }
 
+/* ----- Entity spawn ----- */
 function enemySpawn(){
 
     //Get enemy's last position, we'll use this later to make sure it doesnt spawn on the same place :)
@@ -162,3 +163,17 @@ function enemySpawn(){
     document.getElementById("enemyHealt").innerHTML = 50;
 
 };
+function playerSpawn(){
+
+    playerX = Math.floor(Math.random() * 8);
+    playerY = Math.floor(Math.random() * 8);
+
+
+    document.getElementById("player").style.gridColumnStart = playerY;
+    document.getElementById("player").style.gridRowStart = playerX;
+    
+    document.getElementById("playerHealt").innerHTML = 50;
+
+};
+
+/* ----- End Entity ----- */
